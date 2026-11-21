@@ -1,0 +1,19 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: gateway
+  cloud:
+    consul:
+      host: ${CONSUL_HOST:localhost}
+      port: ${CONSUL_PORT:8500}
+      discovery:
+        prefer-ip-address: true
+        query-passing: true
+        health-check-path: /actuator/health
+        health-check-interval: 5s
+    gateway:
+      discovery:
+        locator:
+          enabled: true
